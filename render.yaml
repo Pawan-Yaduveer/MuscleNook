@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: muscle-nook-app
+    env: node
+    buildCommand: echo "Build not required"
+    startCommand: bash start.sh
+    plan: free
+    branch: main
+    region: oregon
+    repo: https://github.com/Pawan-Yaduveer/MuscleNook
