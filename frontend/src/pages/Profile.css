@@ -1,0 +1,1436 @@
+/* Professional Profile Page Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.profile-page-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container {
+  max-width: 1400px;
+  padding: 0 2rem;
+}
+
+.profile-header {
+  margin-top: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 153, 204, 0.05) 100%);
+  z-index: -1;
+}
+
+.profile-main-title {
+  font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    color: #ffffff !important;
+    margin-bottom: 1rem !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+    background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.profile-subtitle {
+  font-family: 'Inter', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 700px;
+    margin: 0 auto !important;
+    line-height: 1.6 !important;
+}
+
+.profile-content {
+  gap: 2rem !important;
+  align-items: flex-start !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+}
+
+.profile-sidebar-col {
+  position: sticky;
+  top: 120px;
+  padding: 0;
+  height: fit-content;
+  flex-shrink: 0;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.profile-main-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-main-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  min-height: 70vh;
+  transition: all 0.3s ease;
+}
+
+.profile-main-content:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .profile-container {
+    padding: 0 1.5rem;
+  }
+  
+  .profile-content {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .profile-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .profile-main-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .profile-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+  
+  .profile-content {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .profile-sidebar-col {
+    position: sticky;
+    top: 120px;
+    margin-bottom: 0;
+    min-width: 280px;
+    max-width: 280px;
+  }
+  
+  .profile-main-content {
+    padding: 1.5rem;
+    min-height: 60vh;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .profile-container {
+    padding: 0 1rem;
+  }
+  
+  .profile-header {
+    margin-bottom: 2rem;
+  }
+  
+  .profile-content {
+    gap: 1rem;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .profile-sidebar-col {
+    min-width: 250px;
+    max-width: 250px;
+  }
+  
+  .profile-main-content {
+    padding: 1rem;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .profile-page-background {
+    padding-top: 80px;
+  }
+  
+  .profile-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-main-title {
+    font-size: 2rem;
+  }
+  
+  .profile-subtitle {
+    font-size: 1rem;
+  }
+  
+  .profile-content {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  
+  .profile-sidebar-col {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-main-content {
+    padding: 0.75rem;
+    min-height: 45vh;
+  }
+}
+
+/* Profile Sidebar Styling */
+.profile-sidebar-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  height: fit-content !important;
+}
+
+.profile-sidebar-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+.profile-sidebar-container {
+  padding: 2rem !important;
+}
+
+.user-info-section {
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.user-avatar {
+  margin: 0 auto 1rem auto !important;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+}
+
+.user-name {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.user-email {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  margin-bottom: 1rem !important;
+}
+
+.member-status-chip {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.85rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 50px !important;
+}
+
+.sidebar-divider {
+  margin: 1.5rem 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.sidebar-navigation {
+  margin-bottom: 2rem !important;
+}
+
+.sidebar-list-item {
+  margin-bottom: 0.5rem !important;
+}
+
+.sidebar-button {
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  padding: 1rem !important;
+}
+
+.sidebar-button:hover {
+  background: rgba(0, 212, 255, 0.1) !important;
+  transform: translateX(5px) !important;
+}
+
+.sidebar-button.active {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 204, 0.1) 100%) !important;
+  border-left: 4px solid #00d4ff !important;
+}
+
+.sidebar-icon {
+  color: #666 !important;
+  transition: all 0.3s ease !important;
+}
+
+.sidebar-icon.active {
+  color: #00d4ff !important;
+}
+
+.sidebar-text .MuiListItemText-primary {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+}
+
+.sidebar-text .MuiListItemText-secondary {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #666 !important;
+  line-height: 1.4 !important;
+}
+
+.quick-stats-section {
+  text-align: center !important;
+}
+
+.stats-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+}
+
+.stats-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+.stat-item {
+  text-align: center !important;
+  padding: 1rem !important;
+  background: rgba(0, 212, 255, 0.05) !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.75rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+  color: #666 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Update Profile Form Styling */
+.update-profile-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.update-profile-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.update-profile-container {
+  padding: 3rem !important;
+}
+
+.form-header {
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.form-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.form-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+.form-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  line-height: 1.6 !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+}
+
+.form-divider {
+  margin: 2rem 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.update-profile-form {
+  margin-bottom: 1rem !important;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.section-icon {
+  color: #00d4ff !important;
+  font-size: 1.25rem !important;
+}
+
+.section-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.5 !important;
+}
+
+.profile-input {
+  width: 100% !important;
+}
+
+.profile-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.profile-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.profile-input .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+.profile-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00d4ff !important;
+  border-width: 2px !important;
+}
+
+.profile-input .MuiInputLabel-root {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+}
+
+.profile-input .MuiInputLabel-root.Mui-focused {
+  color: #00d4ff !important;
+}
+
+.input-icon {
+  color: #00d4ff !important;
+  margin-right: 0.5rem !important;
+}
+
+.form-actions {
+  margin-top: 2rem !important;
+}
+
+.update-profile-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  height: 56px !important;
+}
+
+.update-profile-button:hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0088b3 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4) !important;
+}
+
+.update-profile-button:disabled {
+  background: #ccc !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.password-info {
+  margin-top: 1.5rem !important;
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Responsive Design for Sidebar and Forms */
+@media (max-width: 991.98px) {
+  .profile-sidebar-container,
+  .update-profile-container {
+    padding: 2rem !important;
+  }
+  
+  .form-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .stats-grid {
+    gap: 0.75rem !important;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .profile-sidebar-container,
+  .update-profile-container {
+    padding: 1.5rem !important;
+  }
+  
+  .form-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+  
+  .sidebar-button {
+    padding: 0.75rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .profile-sidebar-container,
+  .update-profile-container {
+    padding: 1rem !important;
+  }
+  
+  .form-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .update-profile-button {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+  
+  .sidebar-button {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Diet Profile Styling */
+.diet-profile-container {
+  width: 100%;
+}
+
+.diet-profile-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.diet-profile-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.diet-profile-header {
+  text-align: center !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 153, 204, 0.05) 100%) !important;
+}
+
+.diet-profile-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.diet-profile-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+.diet-profile-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.diet-profile-divider {
+  margin: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.diet-profile-form {
+  padding: 2rem !important;
+}
+
+.diet-profile-input {
+  width: 100% !important;
+}
+
+.diet-profile-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.diet-profile-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.diet-profile-input .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+.diet-profile-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00d4ff !important;
+  border-width: 2px !important;
+}
+
+.diet-profile-input .MuiInputLabel-root {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+}
+
+.diet-profile-input .MuiInputLabel-root.Mui-focused {
+  color: #00d4ff !important;
+}
+
+.update-diet-profile-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  height: 56px !important;
+}
+
+.update-diet-profile-button:hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0088b3 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4) !important;
+}
+
+/* Nutrition Summary Styling */
+.nutrition-summary-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nutrition-summary-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.nutrition-summary-container {
+  padding: 2rem !important;
+}
+
+.nutrition-summary-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.5rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.nutrition-summary-icon {
+  color: #00d4ff !important;
+  font-size: 1.75rem !important;
+}
+
+.nutrition-stats-grid {
+  margin-bottom: 2rem !important;
+}
+
+.nutrition-stat-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 153, 204, 0.05) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.nutrition-stat-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15) !important;
+}
+
+.nutrition-stat-content {
+  text-align: center !important;
+  padding: 1.5rem 1rem !important;
+}
+
+.nutrition-stat-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 2px 10px rgba(0, 212, 255, 0.2) !important;
+}
+
+.nutrition-stat-label {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.nutrition-divider {
+  margin: 2rem 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.nutrition-recommendations {
+  text-align: center !important;
+}
+
+.recommendations-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+}
+
+.recommendation-chip {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 50px !important;
+  margin: 0.25rem !important;
+}
+
+/* Loading States */
+.loading-container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4rem 2rem !important;
+  text-align: center !important;
+}
+
+.loading-text {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  margin-top: 1rem !important;
+}
+
+/* Meal Plan Styling */
+.meal-plan-container {
+  width: 100%;
+}
+
+.meal-plan-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.meal-plan-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.meal-plan-header {
+  text-align: center !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.05) 0%, rgba(255, 170, 170, 0.05) 100%) !important;
+}
+
+.meal-plan-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.meal-plan-icon {
+  color: #FF6B6B !important;
+  font-size: 2rem !important;
+}
+
+.meal-plan-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.meal-plan-divider {
+  margin: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.date-selection-section {
+  padding: 2rem !important;
+}
+
+.date-input {
+  width: 100% !important;
+}
+
+.date-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.date-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.date-actions {
+  display: flex !important;
+  gap: 1rem !important;
+}
+
+.clear-button {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  border-radius: 50px !important;
+  padding: 0.75rem 1.5rem !important;
+  text-transform: none !important;
+}
+
+.meal-plan-form-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.meal-plan-form-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.meal-plan-form-container {
+  padding: 2rem !important;
+}
+
+.form-section-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+}
+
+.meal-plan-form {
+  margin-bottom: 1rem !important;
+}
+
+.meal-input-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.meal-input-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.meal-input-content {
+  padding: 1.5rem !important;
+}
+
+.meal-input-header {
+  margin-bottom: 1rem !important;
+}
+
+.meal-type-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+}
+
+.meal-type-icon {
+  font-size: 1.5rem !important;
+}
+
+.meal-type-label {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  color: #1e3c72 !important;
+}
+
+.meal-input-field {
+  width: 100% !important;
+}
+
+.meal-input-field .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.meal-input-field .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.meal-plan-actions {
+  margin-top: 2rem !important;
+  text-align: center !important;
+}
+
+.save-meal-plan-button {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3) !important;
+  transition: all 0.3s ease !important;
+  height: 56px !important;
+}
+
+.save-meal-plan-button:hover {
+  background: linear-gradient(135deg, #FF5252 0%, #FF7676 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.4) !important;
+}
+
+/* Meal Summary Styling */
+.meal-summary-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.meal-summary-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.meal-summary-container {
+  padding: 2rem !important;
+}
+
+.meal-summary-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+}
+
+.meal-summary-grid {
+  margin-bottom: 1rem !important;
+}
+
+.meal-summary-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.meal-summary-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.meal-summary-content {
+  padding: 1.5rem !important;
+}
+
+.meal-summary-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.meal-summary-icon {
+  font-size: 1.25rem !important;
+}
+
+.meal-summary-label {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  color: #1e3c72 !important;
+}
+
+.meal-summary-text {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  line-height: 1.5 !important;
+}
+
+.empty-meal-plan {
+  text-align: center !important;
+  padding: 3rem 2rem !important;
+}
+
+.empty-meal-plan-text {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #999 !important;
+  font-style: italic !important;
+}
+
+/* Water Intake Styling */
+.water-intake-container {
+  width: 100%;
+}
+
+.water-intake-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.water-intake-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.water-intake-header {
+  text-align: center !important;
+  padding: 2rem !important;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 153, 204, 0.05) 100%) !important;
+}
+
+.water-intake-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.water-intake-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+.water-intake-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  line-height: 1.6 !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
+}
+
+.water-intake-divider {
+  margin: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+.water-progress-section {
+  padding: 2rem !important;
+}
+
+.progress-info {
+  text-align: center !important;
+}
+
+.progress-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+}
+
+.water-amount {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 2px 10px rgba(0, 212, 255, 0.2) !important;
+}
+
+.water-goal {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+}
+
+.progress-visual {
+  text-align: center !important;
+}
+
+.progress-bar-container {
+  position: relative !important;
+  margin-bottom: 1rem !important;
+}
+
+.progress-percentage {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  color: #1e3c72 !important;
+  font-size: 0.9rem !important;
+}
+
+.hydration-status {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  font-weight: 500 !important;
+}
+
+/* Water Logging Section */
+.water-logging-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.water-logging-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.water-logging-container {
+  padding: 2rem !important;
+}
+
+.logging-section-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+}
+
+.water-input {
+  width: 100% !important;
+}
+
+.water-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.water-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.water-actions {
+  display: flex !important;
+  gap: 1rem !important;
+}
+
+.add-water-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.add-water-button:hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0088b3 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4) !important;
+}
+
+.subtract-water-button {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.subtract-water-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.reset-section {
+  text-align: center !important;
+  margin-top: 2rem !important;
+}
+
+.reset-button {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.reset-button:hover {
+  color: #00d4ff !important;
+  background: rgba(0, 212, 255, 0.05) !important;
+}
+
+/* Quick Add Section */
+.quick-add-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.quick-add-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.quick-add-container {
+  padding: 2rem !important;
+  text-align: center !important;
+}
+
+.quick-add-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.quick-add-buttons {
+  justify-content: center !important;
+}
+
+.quick-add-button {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+  border-color: #00d4ff !important;
+  color: #00d4ff !important;
+}
+
+.quick-add-button:hover {
+  background: rgba(0, 212, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2) !important;
+}
+
+/* Hydration Tips Section */
+.hydration-tips-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.hydration-tips-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.hydration-tips-container {
+  padding: 2rem !important;
+}
+
+.tips-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+
+.tips-grid {
+  margin-bottom: 1rem !important;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(0, 153, 204, 0.05) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.tip-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.tip-content {
+  padding: 1.5rem !important;
+  text-align: center !important;
+}
+
+.tip-text {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  line-height: 1.5 !important;
+}

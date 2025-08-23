@@ -10,14 +10,12 @@ import { toast } from "react-toastify";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../assets/images/urban.jpg";
-import "./Header.css"; // Importing the CSS file
+import "./Header.css";
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
@@ -32,15 +30,7 @@ const Header = () => {
   };
 
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState(location.pathname);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const handleLinkClick = (url) => {
-    setActiveLink(url);
-    if (isMobileMenuOpen) {
-      setMobileMenuOpen(false);
-    }
-  };
 
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -52,7 +42,7 @@ const Header = () => {
       <Nav.Link
         as={Link}
         to={to}
-        className={isActive ? "active nav-link" : "nav-link"}
+        className={`nav-link ${isActive ? 'active' : ''}`}
       >
         {children}
       </Nav.Link>
@@ -61,63 +51,65 @@ const Header = () => {
 
   return (
     <Navbar
-      expand="md"
-      style={{
-    color: "#1c162c",
-    backgroundColor: "#150f23", // Dark purple background
-        color: "#fff", // White font
-        width: "100%",
-        opacity: "0.9", // Slightly transparent
-        boxShadow: "0 0 20px black", // Subtle shadow
-        fontSize: "20px", // Larger font size
-      }}
+      expand="lg"
+      className="professional-navbar"
+      fixed="top"
     >
-      <Container>
-        <Navbar.Brand as={Link} to="/">
-          <img
-            src={Logo}
-            alt="logo"
-            style={{
-              width: "100px",
-              borderRadius: "35px",
-            }}
-          />
+      <Container className="navbar-container">
+        <Navbar.Brand as={Link} to="/" className="navbar-brand">
+          <div className="logo-container">
+            
+            <span className="brand-text">MuscleNook</span>
+          </div>
         </Navbar.Brand>
+        
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={handleMobileMenuToggle}
+          className="navbar-toggle"
         >
-          {isMobileMenuOpen ? <CloseIcon style={{ color: "#fff" }} /> : <MenuIcon style={{ color: "#fff" }} />}
+          {isMobileMenuOpen ? (
+            <CloseIcon className="toggle-icon" />
+          ) : (
+            <MenuIcon className="toggle-icon" />
+          )}
         </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+        
+        <Navbar.Collapse id="responsive-navbar-nav" className="navbar-collapse">
+          <Nav className="me-auto main-nav">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/pages/features">Features</NavLink>
-            <NavLink to="/pages/workouts">Workout Database</NavLink>
-            <NavLink to="/pages/nutrition-checker">Nutrition Checker</NavLink>
-            <NavLink to="/pages/bmr-calculator">BMR</NavLink>
+            <NavLink to="/pages/workouts">Workouts</NavLink>
+            <NavLink to="/pages/nutrition-checker">Nutrition</NavLink>
+            <NavLink to="/pages/bmr-calculator">Calculator</NavLink>
           </Nav>
-          <Nav>
+          
+          <Nav className="auth-nav">
             {userInfo ? (
               <NavDropdown
-                title={userInfo.name}
+                title={
+                  <span className="user-dropdown-title">
+                    <span className="user-avatar">{userInfo.name.charAt(0).toUpperCase()}</span>
+                    <span className="user-name">{userInfo.name}</span>
+                  </span>
+                }
                 id="username"
-                style={{ color: "#fff" }}
+                className="user-dropdown"
               >
-                <NavDropdown.Item as={Link} to="/pages/profile">
-                  Profile
+                <NavDropdown.Item as={Link} to="/pages/profile" className="dropdown-item">
+                  <i className="fas fa-user"></i> Profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={logoutHandler}>
-                  Logout
+                <NavDropdown.Item onClick={logoutHandler} className="dropdown-item">
+                  <i className="fas fa-sign-out-alt"></i> Logout
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
               <>
-                <Nav.Link as={Link} to="/pages/register">
-                  Register
+                <Nav.Link as={Link} to="/pages/register" className="auth-link register-link">
+                  Get Started
                 </Nav.Link>
-                <Nav.Link as={Link} to="/pages/login">
-                  Login
+                <Nav.Link as={Link} to="/pages/login" className="auth-link login-link">
+                  Sign In
                 </Nav.Link>
               </>
             )}

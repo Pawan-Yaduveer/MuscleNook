@@ -1,25 +1,79 @@
 import { useState, useEffect } from "react";
-import { Form, Button, Table, Card, Container, Row, Col } from "react-bootstrap";
+import { 
+  Box, 
+  Typography, 
+  TextField, 
+  Button, 
+  Paper, 
+  Grid, 
+  Divider,
+  MenuItem,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Card,
+  CardContent,
+  Chip,
+  CircularProgress
+} from "@mui/material";
+import { 
+  Height, 
+  Scale, 
+  TrendingUp, 
+  Person, 
+  Wc, 
+  DirectionsRun, 
+  Flag,
+  Restaurant,
+  Calculate,
+  Save
+} from "@mui/icons-material";
 import { toast } from "react-toastify";
 import { useUpdateStatusMutation } from "../slices/usersApiSlice";
-import Loader from "./Loader";
+import "./Profile.css";
 
 const UpdateDietProfile = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState("");
-  const [goalWeight, setGoalWeight] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("");
-  const [activityLevel, setActivityLevel] = useState("");
-  const [goal, setGoal] = useState("");
+  const [formData, setFormData] = useState({
+    height: "",
+    weight: "",
+    goalWeight: "",
+    age: "",
+    gender: "",
+    activityLevel: "",
+    goal: ""
+  });
 
   const [updateStatus] = useUpdateStatusMutation();
 
-  const [calories, setCalories] = useState(0);
-  const [protein, setProtein] = useState(0);
-  const [fat, setFat] = useState(0);
-  const [carbs, setCarbs] = useState(0);
+  const [nutritionData, setNutritionData] = useState({
+    calories: 0,
+    protein: 0,
+    fat: 0,
+    carbs: 0
+  });
+
+  const activityLevels = [
+    { value: "sedentary", label: "Sedentary", description: "Little or no exercise" },
+    { value: "lightlyActive", label: "Lightly Active", description: "Light exercise 1-3 days/week" },
+    { value: "active", label: "Active", description: "Moderate exercise 3-5 days/week" },
+    { value: "veryActive", label: "Very Active", description: "Hard exercise 6-7 days/week" }
+  ];
+
+  const goals = [
+    { value: "Maintenance", label: "Maintenance", description: "Maintain current weight" },
+    { value: "Cutting", label: "Cutting", description: "Lose weight and fat" },
+    { value: "Bulking", label: "Bulking", description: "Gain muscle and weight" }
+  ];
+
+  const genders = [
+    { value: "male", label: "Male", icon: "👨" },
+    { value: "female", label: "Female", icon: "👩" },
+    { value: "other", label: "Other", icon: "👤" }
+  ];
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -27,21 +81,21 @@ const UpdateDietProfile = () => {
         const response = await fetch("/api/user/status");
         const data = await response.json();
 
-        setHeight(data.height);
-        setWeight(data.weight);
-        setGoalWeight(data.goalWeight);
-        setAge(data.age);
-        setGender(data.gender);
-        setActivityLevel(data.activityLevel);
-        setGoal(data.goal);
+        setFormData({
+          height: data.height || "",
+          weight: data.weight || "",
+          goalWeight: data.goalWeight || "",
+          age: data.age || "",
+          gender: data.gender || "",
+          activityLevel: data.activityLevel || "",
+          goal: data.goal || ""
+        });
 
-        const profileData = JSON.stringify(data); // Save the retrieved profile data to local storage
+        const profileData = JSON.stringify(data);
         localStorage.setItem("profileData", profileData);
-
         setIsLoading(false);
       } catch (err) {
         toast.error("Failed to fetch profile data.");
-        toast.error(err?.data?.message || err.error);
         setIsLoading(false);
       }
     };
@@ -49,13 +103,15 @@ const UpdateDietProfile = () => {
     const profileData = localStorage.getItem("profileData");
     if (profileData) {
       const parsedData = JSON.parse(profileData);
-      setHeight(parsedData.height);
-      setWeight(parsedData.weight);
-      setGoalWeight(parsedData.goalWeight);
-      setAge(parsedData.age);
-      setGender(parsedData.gender);
-      setActivityLevel(parsedData.activityLevel);
-      setGoal(parsedData.goal);
+      setFormData({
+        height: parsedData.height || "",
+        weight: parsedData.weight || "",
+        goalWeight: parsedData.goalWeight || "",
+        age: parsedData.age || "",
+        gender: parsedData.gender || "",
+        activityLevel: parsedData.activityLevel || "",
+        goal: parsedData.goal || ""
+      });
       setIsLoading(false);
     } else {
       fetchProfileData();
@@ -63,18 +119,18 @@ const UpdateDietProfile = () => {
   }, []);
 
   useEffect(() => {
-    if (weight && activityLevel && goal) {
+    if (formData.weight && formData.activityLevel && formData.goal) {
       const activityMultiplier = {
         sedentary: 1.4,
         lightlyActive: 1.6,
         active: 1.8,
         veryActive: 2.0,
-      }[activityLevel];
+      }[formData.activityLevel];
 
-      let calculatedCalories = weight * 22 * activityMultiplier;
-      let calculatedProtein = weight * 2.2;
+      let calculatedCalories = formData.weight * 22 * activityMultiplier;
+      let calculatedProtein = formData.weight * 2.2;
 
-      switch (goal) {
+      switch (formData.goal) {
         case "Cutting":
           calculatedCalories -= 500;
           break;
@@ -85,176 +141,325 @@ const UpdateDietProfile = () => {
           break;
       }
 
-      let calculatedFat = (calculatedCalories * 0.25) / 9; // Convert to grams
-      let calculatedCarbs =
-        (calculatedCalories - (calculatedProtein * 4 + calculatedFat * 9)) / 4; // Convert to grams
+      let calculatedFat = (calculatedCalories * 0.25) / 9;
+      let calculatedCarbs = (calculatedCalories - (calculatedProtein * 4 + calculatedFat * 9)) / 4;
 
-      setCalories(calculatedCalories);
-      setProtein(calculatedProtein);
-      setFat(calculatedFat);
-      setCarbs(calculatedCarbs);
+      setNutritionData({
+        calories: Math.round(calculatedCalories),
+        protein: Math.round(calculatedProtein),
+        fat: Math.round(calculatedFat),
+        carbs: Math.round(calculatedCarbs)
+      });
     }
-  }, [weight, activityLevel, goal]);
+  }, [formData.weight, formData.activityLevel, formData.goal]);
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (
-      height &&
-      weight &&
-      goalWeight &&
-      age &&
-      gender &&
-      activityLevel &&
-      goal
-    ) {
+    
+    if (Object.values(formData).every(value => value)) {
       try {
-        const updatedProfile = {
-          height,
-          weight,
-          goalWeight,
-          age,
-          gender,
-          activityLevel,
-          goal,
-        };
-
-        const response = await updateStatus(updatedProfile).unwrap();
-
-        toast.success("Diet Profile Updated!");
-
-        // Save the updated profile data to local storage
-        const profileData = JSON.stringify(updatedProfile);
+        const response = await updateStatus(formData).unwrap();
+        toast.success("Diet Profile Updated Successfully!");
+        
+        const profileData = JSON.stringify(formData);
         localStorage.setItem("profileData", profileData);
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        toast.error(err?.data?.message || err.error || "Failed to update diet profile");
       }
     } else {
       toast.error("Please fill in all the required fields.");
     }
   };
 
+  if (isLoading) {
+    return (
+      <Box className="loading-container">
+        <CircularProgress size={60} />
+        <Typography variant="h6" className="loading-text">
+          Loading your diet profile...
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
-    <Container className="py-5">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <Card className="p-4 shadow-lg" style={{ borderRadius: "15px", backgroundColor: "#f8f9fa" }}>
-            <h2 className="text-center mb-4">
-              Update Diet Profile
-            </h2>
-            <Form onSubmit={submitHandler}>
-              <Form.Group className="mb-3" controlId="height">
-                <Form.Label>Height (CM)</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter height"
-                  value={height}
-                  onChange={(e) => setHeight(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+    <Box className="diet-profile-container">
+      {/* Main Form */}
+      <Paper elevation={3} className="diet-profile-paper">
+        <Box className="diet-profile-header">
+          <Typography variant="h4" className="diet-profile-title">
+            <Restaurant className="diet-profile-icon" />
+            Update Diet Profile
+          </Typography>
+          <Typography variant="body1" className="diet-profile-subtitle">
+            Set your physical metrics and fitness goals to get personalized nutrition recommendations
+          </Typography>
+        </Box>
 
-              <Form.Group className="mb-3" controlId="weight">
-                <Form.Label>Weight (KG)</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter weight"
-                  value={weight}
-                  onChange={(e) => setWeight(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+        <Divider className="diet-profile-divider" />
 
-              <Form.Group className="mb-3" controlId="goalWeight">
-                <Form.Label>Goal Weight (KG)</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter goal weight"
-                  value={goalWeight}
-                  onChange={(e) => setGoalWeight(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+        <form onSubmit={submitHandler} className="diet-profile-form">
+          <Grid container spacing={3}>
+            {/* Physical Metrics Section */}
+            <Grid item xs={12}>
+              <Typography variant="h6" className="section-title">
+                <Height className="section-icon" />
+                Physical Metrics
+              </Typography>
+            </Grid>
+            
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Height (cm)"
+                value={formData.height}
+                onChange={(e) => handleInputChange("height", e.target.value)}
+                className="diet-profile-input"
+                placeholder="e.g., 175"
+                InputProps={{
+                  startAdornment: <Height className="input-icon" />
+                }}
+              />
+            </Grid>
+            
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Weight (kg)"
+                value={formData.weight}
+                onChange={(e) => handleInputChange("weight", e.target.value)}
+                className="diet-profile-input"
+                placeholder="e.g., 70"
+                InputProps={{
+                  startAdornment: <Scale className="input-icon" />
+                }}
+              />
+            </Grid>
+            
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Goal Weight (kg)"
+                value={formData.goalWeight}
+                onChange={(e) => handleInputChange("goalWeight", e.target.value)}
+                className="diet-profile-input"
+                placeholder="e.g., 65"
+                InputProps={{
+                  startAdornment: <TrendingUp className="input-icon" />
+                }}
+              />
+            </Grid>
+            
+            <Grid item xs={12} sm={6} md={3}>
+              <TextField
+                fullWidth
+                label="Age"
+                value={formData.age}
+                onChange={(e) => handleInputChange("age", e.target.value)}
+                className="diet-profile-input"
+                placeholder="e.g., 25"
+                InputProps={{
+                  startAdornment: <Person className="input-icon" />
+                }}
+              />
+            </Grid>
 
-              <Form.Group className="mb-3" controlId="age">
-                <Form.Label>Age</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter age"
-                  value={age}
-                  onChange={(e) => setAge(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+            {/* Personal Details Section */}
+            <Grid item xs={12}>
+              <Typography variant="h6" className="section-title">
+                <Wc className="section-icon" />
+                Personal Details
+              </Typography>
+            </Grid>
+            
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                select
+                label="Gender"
+                value={formData.gender}
+                onChange={(e) => handleInputChange("gender", e.target.value)}
+                className="diet-profile-input"
+                InputProps={{
+                  startAdornment: <Wc className="input-icon" />
+                }}
+              >
+                {genders.map((gender) => (
+                  <MenuItem key={gender.value} value={gender.value}>
+                    {gender.icon} {gender.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
+            
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                select
+                label="Activity Level"
+                value={formData.activityLevel}
+                onChange={(e) => handleInputChange("activityLevel", e.target.value)}
+                className="diet-profile-input"
+                InputProps={{
+                  startAdornment: <DirectionsRun className="input-icon" />
+                }}
+              >
+                {activityLevels.map((level) => (
+                  <MenuItem key={level.value} value={level.value}>
+                    {level.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
 
-              <Form.Group className="mb-3" controlId="gender">
-                <Form.Label>Gender</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter gender"
-                  value={gender}
-                  onChange={(e) => setGender(e.target.value)}
-                ></Form.Control>
-              </Form.Group>
+            {/* Fitness Goals Section */}
+            <Grid item xs={12}>
+              <Typography variant="h6" className="section-title">
+                <Flag className="section-icon" />
+                Fitness Goals
+              </Typography>
+            </Grid>
+            
+            <Grid item xs={12} sm={6}>
+              <TextField
+                fullWidth
+                select
+                label="Goal"
+                value={formData.goal}
+                onChange={(e) => handleInputChange("goal", e.target.value)}
+                className="diet-profile-input"
+                InputProps={{
+                  startAdornment: <Flag className="input-icon" />
+                }}
+              >
+                {goals.map((goal) => (
+                  <MenuItem key={goal.value} value={goal.value}>
+                    {goal.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </Grid>
 
-              <Form.Group className="mb-3" controlId="activityLevel">
-                <Form.Label>Activity Level</Form.Label>
-                <Form.Control
-                  as="select"
-                  value={activityLevel}
-                  onChange={(e) => setActivityLevel(e.target.value)}
+            {/* Submit Button */}
+            <Grid item xs={12}>
+              <Box className="form-actions">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  size="large"
+                  className="update-diet-profile-button"
+                  fullWidth
+                  startIcon={<Save />}
                 >
-                  <option value="">Select activity level</option>
-                  <option value="sedentary">SEDENTARY</option>
-                  <option value="lightlyActive">LIGHTLY ACTIVE</option>
-                  <option value="active">ACTIVE</option>
-                  <option value="veryActive">VERY ACTIVE</option>
-                </Form.Control>
-              </Form.Group>
+                  Update Diet Profile
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </form>
+      </Paper>
 
-              <Form.Group className="mb-3" controlId="goal">
-                <Form.Label>Goal</Form.Label>
-                <Form.Control
-                  as="select"
-                  value={goal}
-                  onChange={(e) => setGoal(e.target.value)}
-                >
-                  <option value="">Select goal</option>
-                  <option value="Maintenance">Maintenance</option>
-                  <option value="Cutting">Cutting</option>
-                  <option value="Bulking">Bulking</option>
-                </Form.Control>
-              </Form.Group>
+      {/* Nutrition Summary */}
+      {nutritionData.calories > 0 && (
+        <Paper elevation={3} className="nutrition-summary-paper">
+          <Box className="nutrition-summary-container">
+            <Typography variant="h5" className="nutrition-summary-title">
+              <Calculate className="nutrition-summary-icon" />
+              Your Nutrition Summary
+            </Typography>
+            
+            <Grid container spacing={3} className="nutrition-stats-grid">
+              <Grid item xs={6} sm={3}>
+                <Card className="nutrition-stat-card">
+                  <CardContent className="nutrition-stat-content">
+                    <Typography variant="h4" className="nutrition-stat-value">
+                      {nutritionData.calories}
+                    </Typography>
+                    <Typography variant="body2" className="nutrition-stat-label">
+                      Calories
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              
+              <Grid item xs={6} sm={3}>
+                <Card className="nutrition-stat-card">
+                  <CardContent className="nutrition-stat-content">
+                    <Typography variant="h4" className="nutrition-stat-value">
+                      {nutritionData.protein}g
+                    </Typography>
+                    <Typography variant="body2" className="nutrition-stat-label">
+                      Protein
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              
+              <Grid item xs={6} sm={3}>
+                <Card className="nutrition-stat-card">
+                  <CardContent className="nutrition-stat-content">
+                    <Typography variant="h4" className="nutrition-stat-value">
+                      {nutritionData.fat}g
+                    </Typography>
+                    <Typography variant="body2" className="nutrition-stat-label">
+                      Fat
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              
+              <Grid item xs={6} sm={3}>
+                <Card className="nutrition-stat-card">
+                  <CardContent className="nutrition-stat-content">
+                    <Typography variant="h4" className="nutrition-stat-value">
+                      {nutritionData.carbs}g
+                    </Typography>
+                    <Typography variant="body2" className="nutrition-stat-label">
+                      Carbs
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
 
-              {isLoading && <Loader />}
+            <Divider className="nutrition-divider" />
 
-              <Button type="submit" variant="success" className="w-100 mt-3">
-                Update Profile
-              </Button>
-            </Form>
-          </Card>
-
-          <Card className="mt-4 p-3 shadow-lg" style={{ borderRadius: "15px" }}>
-            <h4 className="text-center mb-3" style={{ color: "#495057" }}>
-              Nutrition Summary
-            </h4>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Calories</th>
-                  <th>Protein</th>
-                  <th>Fat</th>
-                  <th>Carbs</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{Math.round(calories)}</td>
-                  <td>{Math.round(protein)} g</td>
-                  <td>{Math.round(fat)} g</td>
-                  <td>{Math.round(carbs)} g</td>
-                </tr>
-              </tbody>
-            </Table>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+            <Box className="nutrition-recommendations">
+              <Typography variant="h6" className="recommendations-title">
+                Recommendations
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <Chip
+                    icon={<Flag />}
+                    label={`Goal: ${formData.goal}`}
+                    color="primary"
+                    variant="outlined"
+                    className="recommendation-chip"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Chip
+                    icon={<DirectionsRun />}
+                    label={`Activity: ${formData.activityLevel}`}
+                    color="secondary"
+                    variant="outlined"
+                    className="recommendation-chip"
+                  />
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </Paper>
+      )}
+    </Box>
   );
 };
 

@@ -1,0 +1,315 @@
+/* Professional About Page Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.about-page-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1400px;
+  padding: 0 2rem;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-main-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.about-content {
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+
+.about-description-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.about-description-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.about-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1e3c72;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.about-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  border-radius: 2px;
+}
+
+.about-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.stats-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.stats-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #1e3c72;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.stat-item {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #00d4ff;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.features-showcase {
+  margin-bottom: 3rem;
+}
+
+.features-showcase-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.features-grid {
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.feature-item-col {
+  display: flex;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.feature-item-col:nth-child(1) { animation-delay: 0.1s; }
+.feature-item-col:nth-child(2) { animation-delay: 0.2s; }
+.feature-item-col:nth-child(3) { animation-delay: 0.3s; }
+.feature-item-col:nth-child(4) { animation-delay: 0.4s; }
+.feature-item-col:nth-child(5) { animation-delay: 0.5s; }
+.feature-item-col:nth-child(6) { animation-delay: 0.6s; }
+.feature-item-col:nth-child(7) { animation-delay: 0.7s; }
+.feature-item-col:nth-child(8) { animation-delay: 0.8s; }
+
+.feature-showcase-card {
+  width: 100%;
+  max-width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-showcase-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.feature-icon-large {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feature-showcase-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1e3c72;
+  margin-bottom: 0.75rem;
+}
+
+.feature-showcase-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  
+  .about-content {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .about-header {
+    margin-bottom: 3rem;
+  }
+  
+  .about-main-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  
+  .about-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+  
+  .about-content {
+    margin-bottom: 3rem;
+  }
+  
+  .features-showcase-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-container {
+    padding: 0 1rem;
+  }
+  
+  .about-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .about-content {
+    margin-bottom: 2.5rem;
+  }
+  
+  .features-grid {
+    gap: 1rem;
+  }
+  
+  .feature-showcase-card {
+    max-width: 100%;
+  }
+  
+  .about-section-title {
+    font-size: 1.3rem;
+  }
+  
+  .about-text {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-page-background {
+    padding-top: 80px;
+  }
+  
+  .about-header {
+    margin-bottom: 2rem;
+  }
+  
+  .about-main-title {
+    font-size: 2rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  
+  .features-showcase-title {
+    font-size: 1.5rem;
+  }
+  
+  .feature-icon-large {
+    font-size: 2.5rem;
+  }
+}

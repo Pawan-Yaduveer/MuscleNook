@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import "./Features.css";
@@ -7,18 +7,19 @@ import BgImage from "../assets/images/bgimage.jpg";
 
 const FeatureCard = ({ title, description, link, image }) => {
   return (
-    <Card className="feature-card">
-      <div className="image">
-        <img src={image} alt={title} />
-      </div>
-      <Card.Body>
-        <div className="content">
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{description}</Card.Text>
-          <Link to={link} className="btn btn-primary">
-            Learn More
-          </Link>
+    <Card className="professional-feature-card">
+      <div className="feature-image-container">
+        <img src={image} alt={title} className="feature-image" />
+        <div className="feature-overlay">
+          <div className="feature-icon">🏋️‍♂️</div>
         </div>
+      </div>
+      <Card.Body className="feature-card-body">
+        <Card.Title className="feature-title">{title}</Card.Title>
+        <Card.Text className="feature-description">{description}</Card.Text>
+        <Link to={link} className="professional-feature-button">
+          Explore Feature
+        </Link>
       </Card.Body>
     </Card>
   );
@@ -29,42 +30,42 @@ const FeaturesPage = () => {
     {
       title: "Workout Database",
       description:
-        "Our workout database is a comprehensive resource for anyone looking to improve their fitness. Find the perfect routine to target your specific goals.",
+        "Access our comprehensive exercise library with detailed instructions, video demonstrations, and personalized workout recommendations.",
       link: "/pages/workouts",
       image: "https://images.stockcake.com/public/1/4/4/1442875a-a4ae-491f-ba37-3d892d972779_large/intense-lifting-session-stockcake.jpg",
     },
     {
       title: "Nutrition Checker",
       description:
-        "With Nutrition Checker, you can quickly and easily see the nutritional value of any food, including calories, fat, protein, carbohydrates.",
+        "Analyze your meals with our advanced nutrition database. Get detailed breakdowns of calories, macros, and micronutrients.",
       link: "/pages/nutrition-checker",
       image: "https://scontent.flko11-1.fna.fbcdn.net/v/t1.6435-9/122007326_144477494055796_97532102392258088_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=MLacDqtrVFAQ7kNvgH2z_CI&_nc_zt=23&_nc_ht=scontent.flko11-1.fna&_nc_gid=A-NOkl9nRt5E1KSh5ivCTDr&oh=00_AYCHfIEUU29gQ5ClUptdXCcLm6rshCmHgY4k_GQXFJu6lQ&oe=67925F64",
     },
     {
       title: "BMR Calculator",
       description:
-        "Calculate your Basal Metabolic Rate (BMR) to determine your daily calorie needs. Get insights into your metabolism.",
+        "Calculate your Basal Metabolic Rate and daily caloric needs. Get personalized insights to optimize your nutrition plan.",
       link: "/pages/bmr-calculator",
       image: "https://myyogaayurveda.com/wp-content/uploads/2022/05/flat-infographic-metabolism-level-scale-with-arrow-measurement-value_88138-934.webp",
     },
     {
       title: "Create Account",
       description:
-        "Create a personalized account to access additional features, save your progress, and customize your experience.",
+        "Join our fitness community to track progress, save workouts, and unlock personalized features tailored to your goals.",
       link: "/pages/register",
       image: "https://www.shutterstock.com/shutterstock/videos/3633134879/thumb/8.jpg?ip=x480",
     },
     {
       title: "Meal Planner",
       description:
-        "The Meal Planner is a feature that helps you plan your meals for the Day. The Meal Planner is a great way to save time and money, and to eat healthier!",
+        "Plan your weekly meals with our intelligent meal planner. Get recipe suggestions, shopping lists, and nutritional guidance.",
       link: "/pages/profile/meal-plan",
       image: "https://gust-production.s3.amazonaws.com/uploads/startup/logo_image/17537/logo.png",
     },
     {
       title: "Water Intake Log",
       description:
-        "Feature that helps you track how much water you drink each day. You can enter the amount of water you drink each time you take a drink.",
+        "Track your daily hydration with our water intake logger. Set reminders and monitor your hydration goals for optimal health.",
       link: "/pages/profile/meal-plan",
       image: "https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?cs=srgb&dl=pexels-pixabay-327090.jpg&fm=jpg",
     },
@@ -72,31 +73,39 @@ const FeaturesPage = () => {
 
   return (
     <>
-        <Row className="justify-content-center g-4 featurescontain"
-         style={{
-           backgroundImage: `url(${BgImage})`,
-           backgroundSize: "cover",
-           backgroundPosition: "center",
-           margin: "0",
-           maxWidth: "100%",
-           maxHeight: "100%",
-           paddingBottom: "200px",
-         }}
-        >
+      <div 
+        className="features-page-background"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%), url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          paddingTop: "100px",
+        }}
+      >
+        <Container className="features-container">
+          <div className="features-header">
+            <h1 className="features-main-title">Discover Our Features</h1>
+            <p className="features-subtitle">
+              Transform your fitness journey with our comprehensive suite of tools and features
+            </p>
+          </div>
 
-         <h2 className="text-center mb-4">App Features</h2>
-
-          {features.map((feature, index) => (
-            <Col key={index} xs={12} md={6} lg={6} className="feature-card-wrapper">
-              <FeatureCard
-                title={feature.title}
-                description={feature.description}
-                link={feature.link}
-                image={feature.image} // Pass the image here
-              />
-            </Col>
-          ))}
-        </Row>
+          <Row className="features-grid">
+            {features.map((feature, index) => (
+              <Col key={index} xs={12} md={6} lg={4} className="feature-col">
+                <FeatureCard
+                  title={feature.title}
+                  description={feature.description}
+                  link={feature.link}
+                  image={feature.image}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
       <Footer />
     </>
   );

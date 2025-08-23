@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Container } from "@mui/material";
 import CalorieCalculator from "../components/CalorieCalculator";
 import FormContainer from "../components/FormContainer";
 import Footer from "../components/Footer";
 import BgImage from "../assets/images/bgimage.jpg";
+import "./BMRCalculator.css";
 
 const BMRCalculator = () => {
-  const [currentView, setCurrentView] = useState("form"); // State to manage the current view
+  const [currentView, setCurrentView] = useState("form");
 
   const handleViewChange = (view) => {
-    setCurrentView(view); // Update the view state (form, results, or supplements)
+    setCurrentView(view);
   };
 
   const getHeadingText = () => {
@@ -27,40 +28,38 @@ const BMRCalculator = () => {
 
   return (
     <>
-      <div
+      <div 
+        className="bmr-page-background"
         style={{
-          backgroundImage: `url(${BgImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%), url(${BgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: "0",
-          margin: "0",
-          maxWidth: "100%",
-          maxHeight: "100%",
-          paddingBottom: "20px",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          paddingTop: "100px",
         }}
       >
-        <FormContainer>
-          <Box
-            sx={{
-              padding: "2rem",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "column",
-              height: "68vh",
-            }}
-          >
-            {/* Dynamic heading based on current view */}
-            <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
-              <h2>{getHeadingText()}</h2>
+        <Container className="bmr-container">
+          <div className="bmr-header">
+            <Typography variant="h1" className="bmr-main-title">
+              BMR Calculator
             </Typography>
+            <Typography variant="h4" className="bmr-subtitle">
+              Calculate your Basal Metabolic Rate and daily caloric needs for optimal health and fitness
+            </Typography>
+          </div>
 
-            {/* Pass the function to update view to the CalorieCalculator component */}
-            <CalorieCalculator onViewChange={handleViewChange} />
-          </Box>
-        </FormContainer>
+          <FormContainer>
+            <Box className="bmr-content-container">
+              <Typography variant="h4" className="bmr-dynamic-heading">
+                {getHeadingText()}
+              </Typography>
+              
+              <CalorieCalculator onViewChange={handleViewChange} />
+            </Box>
+          </FormContainer>
+        </Container>
       </div>
-
       <Footer />
     </>
   );

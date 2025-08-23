@@ -1,30 +1,39 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import BgImage from "../assets/images/bgimage.jpg";
-
-
 import ExercisePage from "../components/ExerciseDB";
 import Footer from "../components/Footer";
+import "./Workouts.css";
 
 const Workouts = () => {
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "80vh",
-          backgroundImage: `url(${BgImage})`, // Set the image as background
-          backgroundSize: "cover", // Ensure the image covers the entire container
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat", // Ensure the image doesn't repeat
+      <div 
+        className="workouts-page-background"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%), url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          paddingTop: "100px",
         }}
-
-
       >
-        <ExercisePage />
-      </Box>
+        <Container className="workouts-container">
+          <div className="workouts-header">
+            <Typography variant="h1" className="workouts-main-title">
+              Exercise Database
+            </Typography>
+            <Typography variant="h4" className="workouts-subtitle">
+              Discover thousands of exercises with detailed instructions and video demonstrations
+            </Typography>
+          </div>
+          
+          <Box className="exercise-container">
+            <ExercisePage />
+          </Box>
+        </Container>
+      </div>
       <Footer />
     </>
   );

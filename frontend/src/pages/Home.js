@@ -8,18 +8,20 @@ const Home = () => {
   return (
     <>
       <div
+        className="home-background"
         style={{
-          backgroundImage: `url(${BgImage})`,
+          backgroundImage: `linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%), url(${BgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          padding: "0",
-          margin: "0",
-          maxWidth: "100%",
-          paddingTop: "40px",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          position: "relative",
         }}
       >
-        <HeroBanner />
-        <HomeContent />
+        <div className="home-overlay">
+          <HeroBanner />
+          <HomeContent />
+        </div>
       </div>
       <Footer />
     </>

@@ -1,154 +1,430 @@
-/* Target table cells specifically */
+/* Modern Professional Nutrition Checker Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-  /* Ensure the header is also white */
-  .nutrition-table thead tr th {
-    color: white !important;
-  }
+.nutrition-checker-form {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
 
-  .nutrition-table {
-    margin-top: 20px;
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #f8f9fa; /* Light background for readability */
-    border: 1px solid #dee2e6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for a modern look */
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .nutrition-table th,
-  .nutrition-table td {
-    padding: 15px;
-    text-align: left;
-    font-size: 16px;
-    color: #343a40;
-  }
-  
-  .nutrition-table th {
-    background-color: #007bff; /* Blue header */
-    color: #fff; /* White text for headers */
-  }
-  
-  .nutrition-table tbody tr:hover {
-    background-color: #f1f3f5; /* Slightly darker background on hover */
-    cursor: pointer;
-  }
-  
-  .nutrition-table tbody tr:nth-child(odd) {
-    background-color: #e9ecef; /* Alternate row colors */
-  }
-  
-  .nutrition-table tbody tr:nth-child(even) {
-    background-color: #ffffff;
-  }
-  
-  .nutrition-table thead {
-    border-bottom: 2px solid #dee2e6;
-  }
-  
-  .nutrition-table tbody td {
-    border-top: 1px solid #dee2e6;
-  }
-  
-  .nutrition-table:hover {
-    transform: scale(1.01); /* Slight scale-up on hover for a modern effect */
-  }
-  
-  @media screen and (max-width: 768px) {
-    .nutrition-table th,
-    .nutrition-table td {
-      font-size: 14px;
-      padding: 10px;
-    }
-  }
-  
+/* Search Form Styling */
+.nutrition-search-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
 
-  .custom-search-box {
-    font-size: 16px; /* Replace $font-size */
-    border: solid 2px #ccc; /* Replace $frame-thickness and $frame-color */
-    display: inline-block;
-    position: relative;
-    border-radius: 50px; /* Replace $size */
-    border-color: #ff0022;
-    box-shadow: #fff 0 0 5px; /* Replace $frame-color */
+.nutrition-search-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
 
-  }
+.nutrition-search-container {
+  padding: 3rem !important;
+  text-align: center !important;
+}
 
-  .custom-search-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+.search-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.search-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+.search-subtitle {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  margin-bottom: 2rem !important;
+  max-width: 600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.6 !important;
+}
+
+.search-form {
+  margin-bottom: 1rem !important;
+}
+
+.nutrition-search-input {
+  width: 100% !important;
+}
+
+.nutrition-search-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.nutrition-search-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.nutrition-search-input .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+.nutrition-search-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00d4ff !important;
+  border-width: 2px !important;
+}
+
+.nutrition-search-input .MuiInputLabel-root {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+}
+
+.nutrition-search-input .MuiInputLabel-root.Mui-focused {
+  color: #00d4ff !important;
+}
+
+.nutrition-search-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  height: 56px !important;
+}
+
+.nutrition-search-button:hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0088b3 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4) !important;
+}
+
+.nutrition-search-button:disabled {
+  background: #ccc !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.nutrition-error {
+  margin-top: 1rem !important;
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Results Styling */
+.nutrition-results-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.nutrition-results-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.nutrition-results-container {
+  padding: 3rem !important;
+}
+
+.results-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.results-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+/* Nutrition Stats Cards */
+.nutrition-stats-grid {
+  margin-bottom: 2rem !important;
+}
+
+.nutrition-stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.nutrition-stat-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15) !important;
+  border-color: rgba(0, 212, 255, 0.2) !important;
+}
+
+.stat-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+.stat-icon {
+  color: #00d4ff !important;
+  font-size: 1.5rem !important;
+}
+
+.stat-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-unit {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  line-height: 1.5 !important;
+}
+
+/* Divider */
+.nutrition-divider {
+  margin: 2rem 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent) !important;
+  height: 2px !important;
+}
+
+/* Detailed Nutrition Title */
+.detailed-nutrition-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+  position: relative !important;
+}
+
+.detailed-nutrition-title::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -8px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 60px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #00d4ff, #0099cc) !important;
+  border-radius: 2px !important;
+}
+
+/* Table Styling */
+.nutrition-table-container {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  margin-bottom: 2rem !important;
+}
+
+.nutrition-table {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.table-header {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  padding: 1rem !important;
+  text-align: center !important;
+}
+
+.nutrient-name {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  padding: 1rem !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.nutrient-value {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #00d4ff !important;
+  padding: 1rem !important;
+  text-align: center !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.nutrient-dv {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  color: #666 !important;
+  padding: 1rem !important;
+  text-align: center !important;
+}
+
+.nutrition-table tbody tr:nth-child(even) {
+  background: rgba(0, 212, 255, 0.05) !important;
+}
+
+.nutrition-table tbody tr:hover {
+  background: rgba(0, 212, 255, 0.1) !important;
+  transform: scale(1.01) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Action Buttons */
+.nutrition-actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+}
+
+.new-search-button {
+  color: #00d4ff !important;
+  border-color: #00d4ff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.875rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.new-search-button:hover {
+  background-color: rgba(0, 212, 255, 0.1) !important;
+  border-color: #00d4ff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .nutrition-search-container,
+  .nutrition-results-container {
+    padding: 2.5rem !important;
   }
   
-  .custom-search-box input[type="text"] {
-    font-family: inherit;
-    font-weight: bold;
-    width: 90px; /* Replace $size */
-    height: 50px; /* Replace $size */
-    padding: 10px; /* Replace $open-padding */
-    border: none;
-    box-sizing: border-box;
-    border-radius: 50px; /* Replace $size */
-    transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.3s; /* Replace $open-trans-time and $close-trans-time */
+  .stat-value {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .nutrition-search-container,
+  .nutrition-results-container {
+    padding: 2rem !important;
   }
   
-  .custom-search-box input[type="text"]:focus {
-    outline: none;
+  .search-title,
+  .results-title {
+    font-size: 1.5rem !important;
   }
   
-  .custom-search-box input[type="text"]:focus,
-  .custom-search-box input[type="text"]:not(:placeholder-shown) {
-    width: 200px; /* Replace $open-width */
-    transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  .stat-value {
+    font-size: 2rem !important;
   }
   
-  .custom-search-box input[type="text"]:focus + button[type="reset"],
-  .custom-search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"] {
-    transform: rotate(-45deg) translateY(0);
-    transition: transform 0.3s ease-out 0.5s;
+  .nutrition-stats-grid {
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nutrition-search-container,
+  .nutrition-results-container {
+    padding: 1.5rem !important;
   }
   
-  .custom-search-box input[type="text"]:focus + button[type="reset"]:after,
-  .custom-search-box input[type="text"]:not(:placeholder-shown) + button[type="reset"]:after {
-    opacity: 1;
-    transition: top 0.3s ease-out 0.8s, right 0.3s ease-out 0.8s, opacity 0.3s ease 0.8s;
+  .search-title,
+  .results-title {
+    font-size: 1.25rem !important;
   }
   
-  .custom-search-box button[type="reset"] {
-    background-color: transparent;
-    width: 10px; /* Replace $handle-height */
-    height: 10px; /* Replace $handle-height */
-    border: 0;
-    padding: 0;
-    outline: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 25px; /* Adjust based on height */
-    right: 25px; /* Adjust based on width */
-    transform: rotate(-45deg) translateY(50px); /* Replace $size and $frame-thickness */
-    transition: transform 0.3s ease-out 0.3s; /* Replace $close-trans-time */
+  .stat-value {
+    font-size: 1.75rem !important;
   }
   
-  .custom-search-box button[type="reset"]:before,
-  .custom-search-box button[type="reset"]:after {
-    content: "";
-    background-color: #ff0022; /* Replace $frame-color */
-    width: 2px; /* Replace $frame-thickness */
-    height: 20px; /* Replace $handle-height */
-    position: absolute;
+  .nutrition-stats-grid {
+    gap: 0.75rem !important;
   }
   
-  .custom-search-box button[type="reset"]:after {
-    transform: rotate(90deg);
-    opacity: 0;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  .nutrition-actions {
+    flex-direction: column !important;
+    align-items: center !important;
   }
   
-  .custom-search-btn {
-    margin-top: 15px;
-    display: inline-block;
+  .table-header,
+  .nutrient-name,
+  .nutrient-value,
+  .nutrient-dv {
+    padding: 0.75rem !important;
+    font-size: 0.9rem !important;
   }
+}
+
+@media (max-width: 575.98px) {
+  .nutrition-search-container,
+  .nutrition-results-container {
+    padding: 1rem !important;
+  }
+  
+  .search-title,
+  .results-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem !important;
+  }
+  
+  .nutrition-search-button {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
+  
+  .table-header,
+  .nutrient-name,
+  .nutrient-value,
+  .nutrient-dv {
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+}
   

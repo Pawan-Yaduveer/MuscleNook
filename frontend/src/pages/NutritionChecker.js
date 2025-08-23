@@ -1,27 +1,39 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import BgImage from "../assets/images/bgimage.jpg";
-
 import NutritionCheckerForm from "../components/NutritionCheckerForm";
 import Footer from "../components/Footer";
+import "./NutritionChecker.css";
 
 const NutritionChecker = () => {
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "80vh",
-          backgroundImage: `url(${BgImage})`, // Set the image as background
-          backgroundSize: "cover", // Ensure the image covers the entire container
-          backgroundPosition: "center", // Center the image
-          backgroundRepeat: "no-repeat",
+      <div 
+        className="nutrition-page-background"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(30, 60, 114, 0.95) 0%, rgba(42, 82, 152, 0.95) 100%), url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh",
+          paddingTop: "100px",
         }}
       >
-        <NutritionCheckerForm />
-      </Box>
+        <Container className="nutrition-container">
+          <div className="nutrition-header">
+            <Typography variant="h1" className="nutrition-main-title">
+              Nutrition Checker
+            </Typography>
+            <Typography variant="h4" className="nutrition-subtitle">
+              Analyze your meals and get detailed nutritional insights to make informed food choices
+            </Typography>
+          </div>
+          
+          <Box className="nutrition-form-container">
+            <NutritionCheckerForm />
+          </Box>
+        </Container>
+      </div>
       <Footer />
     </>
   );

@@ -1,132 +1,533 @@
-/* Styling the calorie calculator container */
+/* Modern Professional Calorie Calculator Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 .calorie-calculator {
-    text-align: center;
-    color: #e6d5d5; /* Color for the container text */
-    opacity: 0.9; /* Adds some transparency */
-    font-family: 'Arial', sans-serif; /* Clean font for readability */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-/* Styling for the form */
-.styled-form {
-    text-align: center;
-    color: #e6d5d5; /* Color for the container text */
-    opacity: 0.9; /* Adds some transparency */
-    font-weight: bolder;
-    margin-bottom: 20px; /* Adds space below the form */
+/* Form Styling */
+.calculator-form-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Styling the input fields in the form */
-.styled-form input:hover {
-    background-color: #69829e;
+.calculator-form-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
 }
 
-/* Styling form labels */
-.styled-form label {
-    color: #f6e6e0; /* Set a color for form labels */
-    font-weight: bolder;
-    font-size: 20px;
-    opacity: 0.8; /* Adds transparency */
+.calculator-form-container {
+  padding: 3rem !important;
 }
 
-/* Styling form inputs */
-.styled-form input {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    margin-bottom: 10px;
+.form-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
 }
 
-/* Style for the button */
-.styled-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+.form-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
 }
 
-.btnCal {
-    background-color: #0056b3;
-    font-size: 16px;
-    font-weight: bolder;
+.calculator-input {
+  width: 100% !important;
 }
 
-/* Button hover effect */
-.styled-form button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    font-weight: bolder;
+.calculator-input .MuiOutlinedInput-root {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Styling the table */
-.style-form table {
-    width: 100%; /* Ensure table spans the full width */
-    color: white; /* Set text color to white */
-    background-color: rgba(0, 0, 0, 0.8); /* Dark background with some transparency */
-    border: 1px solid white; /* White border for the table */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 20px;
-    overflow-x: auto; /* Ensures the table is scrollable on smaller screens */
-    box-shadow: 0 10px 20px rgb(103, 255, 209); /* Subtle shadow for depth */
+.calculator-input .MuiOutlinedInput-root:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.15) !important;
 }
 
-/* Styling table headers */
-.style-form table th {
-    color: white;
-    background-color: #007bff; /* Blue header background */
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 2px solid #fff; /* Add border under headers */
+.calculator-input .MuiOutlinedInput-root.Mui-focused {
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
 }
 
-/* Styling table cells */
-.style-form table td {
-    color: white;
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #ccc; /* Soft cell borders */
+.calculator-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #00d4ff !important;
+  border-width: 2px !important;
 }
 
-/* Add hover effect for rows */
-.style-form table tr:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+.calculator-input .MuiInputLabel-root {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  color: #666 !important;
 }
 
-/* Media Query for Responsiveness */
-@media (max-width: 768px) {
-    .styled-form table {
-        font-size: 14px; /* Adjust font size for smaller screens */
-    }
-
-    .styled-form table th, .styled-form table td {
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
-
-    .styled-form button {
-        padding: 8px 16px; /* Smaller button on small screens */
-        font-size: 14px; /* Adjust button font size */
-    }
+.calculator-input .MuiInputLabel-root.Mui-focused {
+  color: #00d4ff !important;
 }
 
-@media (max-width: 480px) {
-    .calorie-calculator {
-        padding: 20px; /* Add some padding for small screens */
-    }
+.calculator-input .MuiFormHelperText-root {
+  font-family: 'Inter', sans-serif !important;
+  color: #888 !important;
+  font-size: 0.85rem !important;
+}
 
-    .styled-form table {
-        font-size: 12px; /* Even smaller font size for mobile */
-    }
+.calculate-button {
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%) !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 1rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3) !important;
+  transition: all 0.3s ease !important;
+  height: 56px !important;
+}
 
-    .styled-form input, .styled-form button {
-        font-size: 14px; /* Adjust font size for mobile */
-        padding: 8px 15px; /* Adjust padding */
-    }
+.calculate-button:hover {
+  background: linear-gradient(135deg, #00b8e6 0%, #0088b3 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4) !important;
+}
 
-    .styled-form table th, .styled-form table td {
-        padding: 8px; /* Adjust padding for mobile */
-    }
+/* Results Styling */
+.results-paper {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease !important;
+}
+
+.results-paper:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-5px) !important;
+}
+
+.results-container {
+  padding: 3rem !important;
+}
+
+.results-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.75rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.75rem !important;
+}
+
+.results-icon {
+  color: #00d4ff !important;
+  font-size: 2rem !important;
+}
+
+.section-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+  color: #1e3c72 !important;
+  margin: 2rem 0 1rem 0 !important;
+  text-align: center !important;
+  position: relative !important;
+}
+
+.section-title::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -8px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 60px !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #00d4ff, #0099cc) !important;
+  border-radius: 2px !important;
+}
+
+/* Metric Cards */
+.results-grid {
+  margin-bottom: 2rem !important;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15) !important;
+  border-color: rgba(0, 212, 255, 0.2) !important;
+}
+
+.metric-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+}
+
+.metric-icon {
+  color: #00d4ff !important;
+  font-size: 1.5rem !important;
+}
+
+.metric-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2.5rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+  text-shadow: 0 2px 10px rgba(0, 212, 255, 0.2) !important;
+}
+
+.metric-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  line-height: 1.5 !important;
+}
+
+/* Calorie Goals Cards */
+.calorie-goals-grid {
+  margin-bottom: 2rem !important;
+}
+
+.goal-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.goal-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.goal-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.goal-calories {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.goal-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #666 !important;
+}
+
+/* BMI Card */
+.bmi-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.bmi-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15) !important;
+}
+
+.bmi-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 3rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.bmi-label {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 1rem !important;
+}
+
+.bmi-chip {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.bmi-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #666 !important;
+}
+
+/* Macros Cards */
+.macros-grid {
+  margin-bottom: 2rem !important;
+}
+
+/* Results Grid */
+.results-grid {
+  margin-bottom: 2rem !important;
+}
+
+/* Calorie Goals Grid */
+.calorie-goals-grid {
+  margin-bottom: 2rem !important;
+}
+
+.macro-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%) !important;
+  border: 1px solid rgba(0, 212, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 1.5rem !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+  height: 100% !important;
+}
+
+.macro-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.15) !important;
+}
+
+.macro-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1e3c72 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.macro-value {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2rem !important;
+  color: #00d4ff !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.macro-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: #666 !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+}
+
+/* Ensure all text is visible */
+.calorie-calculator * {
+  color: inherit !important;
+}
+
+.calorie-calculator .MuiTypography-root {
+  color: inherit !important;
+}
+
+.calorie-calculator .MuiPaper-root {
+  color: inherit !important;
+}
+
+/* Additional visibility fixes */
+.metric-card,
+.goal-card,
+.bmi-card,
+.macro-card {
+  color: #1e3c72 !important;
+}
+
+.metric-value,
+.goal-calories,
+.bmi-value,
+.macro-value {
+  color: #00d4ff !important;
+  text-shadow: 0 2px 10px rgba(0, 212, 255, 0.2) !important;
+}
+
+.metric-title,
+.goal-title,
+.macro-title {
+  color: #1e3c72 !important;
+}
+
+.metric-description,
+.goal-description,
+.bmi-label,
+.bmi-description,
+.macro-description {
+  color: #666 !important;
+}
+
+.reset-button {
+  color: #00d4ff !important;
+  border-color: #00d4ff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.875rem 2rem !important;
+  border-radius: 50px !important;
+  text-transform: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.reset-button:hover {
+  background-color: rgba(0, 212, 255, 0.1) !important;
+  border-color: #00d4ff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .calculator-form-container,
+  .results-container {
+    padding: 2.5rem !important;
+  }
+  
+  .metric-value {
+    font-size: 2.25rem !important;
+  }
+  
+  .goal-calories {
+    font-size: 1.75rem !important;
+  }
+  
+  .bmi-value {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .calculator-form-container,
+  .results-container {
+    padding: 2rem !important;
+  }
+  
+  .form-title,
+  .results-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .metric-value {
+    font-size: 2rem !important;
+  }
+  
+  .goal-calories {
+    font-size: 1.5rem !important;
+  }
+  
+  .bmi-value {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .calculator-form-container,
+  .results-container {
+    padding: 1.5rem !important;
+  }
+  
+  .form-title,
+  .results-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .metric-value {
+    font-size: 1.75rem !important;
+  }
+  
+  .goal-calories {
+    font-size: 1.25rem !important;
+  }
+  
+  .bmi-value {
+    font-size: 2rem !important;
+  }
+  
+  .action-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .calculator-form-container,
+  .results-container {
+    padding: 1rem !important;
+  }
+  
+  .form-title,
+  .results-title {
+    font-size: 1.1rem !important;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem !important;
+  }
+  
+  .goal-calories {
+    font-size: 1.1rem !important;
+  }
+  
+  .bmi-value {
+    font-size: 1.75rem !important;
+  }
+  
+  .calculate-button {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+  }
 }
